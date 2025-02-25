@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ontdek al onze webshops op we-kopen.be - van kinderbedden tot tuinkasten, alles voor huis en tuin!">
+    <meta name="keywords" content="webshops, tuinmeubelen, kinderbedden, E-woodproducts">
+    <meta name="author" content="E-woodproducts">
+    <meta property="og:title" content="We-kopen.be - Alles voor Huis & Tuin">
+    <meta property="og:description" content="Jouw one-stop overzicht voor al onze gespecialiseerde webshops!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80">
+    <meta property="og:url" content="https://we-kopen.be/">
+    <title>We-kopen.be | Alles voor Huis & Tuin</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fffdf7;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #5b8c5a; /* Zacht groen */
+            --secondary: #f9c74f; /* Zonnig geel */
+            --light-bg: #fffdf7; /* Warm wit */
+            --white: #fff;
+            --accent: #90be6d; /* Lichtere groentint */
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: "🌟";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -2rem;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Header/Hero */
+        .hero {
+            min-height: 60vh;
+            background: linear-gradient(to bottom, rgba(91, 140, 90, 0.8), rgba(91, 140, 90, 0.3)),
+                        url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--primary);
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        .navbar__logo {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .hero__content {
+            padding: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero__title {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+        }
+
+        /* Shops Section */
+        .shops {
+            padding: 5rem 0;
+            background: var(--light-bg);
+        }
+
+        .shops__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-top: 1.5rem;
+        }
+
+        .shop-card {
+            text-align: center;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .shop-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .shop-card__img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .shop-card__title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--secondary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .footer__content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                text-align: left;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation">
+        <div class="container">
+            <a href="https://we-kopen.be/">
+                <img src="https://cdn.shopify.com/s/files/1/0770/4697/2750/files/ewood-logo-500_23480c7e-12ba-4e10-ab6e-9c274df584c7.png?v=1739457341" alt="E-woodproducts Logo" class="navbar__logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
+        <div class="container hero__content">
+            <h1 class="hero__title">Alles voor Huis & Tuin</h1>
+            <p class="hero__subtitle">Ontdek onze gespecialiseerde webshops voor al je woon- en tuinwensen!</p>
+        </div>
+    </header>
+
+    <!-- Shops Section -->
+    <section class="shops" aria-label="Onze webshops">
+        <div class="container">
+            <h2 class="section-title">Kies Jouw Webshop</h2>
+            <div class="shops__grid">
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1601590715356-977e2b417ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Berging" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">berging-kopen.be</h3>
+                    <a href="https://berging-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1595854341625-fc3b1f9a5eb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Biertafel" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">biertafel-kopen.be</h3>
+                    <a href="https://biertafel-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1598974512369-76e69b7d11be?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bloembak" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">bloembak-kopen.be</h3>
+                    <a href="https://bloembak-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1621292881358-ace73e5e9c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Buitenkeuken" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">buitenkeuken-kopen.be</h3>
+                    <a href="https://buitenkeuken-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1602145859117-acec9057b7e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hondenhok" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">hondenhok-kopen.be</h3>
+                    <a href="https://hondenhok-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1603198680289-8e362738804b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kippenhok" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">kippenhok-kopen.be</h3>
+                    <a href="https://kippenhok-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1606185932919-8e4b4580476e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Konijnenhok" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">konijnenhok-kopen.be</h3>
+                    <a href="https://konijnenhok-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Meubel" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">meubel-kopen.be</h3>
+                    <a href="https://meubel-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1604298401410-9e096c7b69d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Moestuin" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">moestuin-kopen.be</h3>
+                    <a href="https://moestuin-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1597846916396-2c7090db1e85?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pergola" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">pergola-kopen.be</h3>
+                    <a href="https://pergola-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1626264413958-34e8fdedf86c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Speelhuisje" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">speelhuisje-kopen.be</h3>
+                    <a href="https://speelhuisje-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1595431413531-6b2e5b7a4e1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Speeltoestel" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">speeltoestel-kopen.be</h3>
+                    <a href="https://speeltoestel-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1592925628382-9e4e7e7e8e8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tuinbank" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">tuinbank-kopen.be</h3>
+                    <a href="https://tuinbank-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tuinkast" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">tuinkast-kopen.be</h3>
+                    <a href="https://tuinkast-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1595431413531-6b2e5b7a4e1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Schommel" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">schommel-kopen.be</h3>
+                    <a href="https://schommel-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1626264413958-34e8fdedf86c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Zandbak" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">zandbak-kopen.be</h3>
+                    <a href="https://zandbak-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bed" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">bed-kopen.be</h3>
+                    <a href="https://bed-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hout" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">hout-kopen.be</h3>
+                    <a href="https://hout-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kinderbed" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">kinderbed-kopen.be</h3>
+                    <a href="https://kinderbed-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1595854341625-fc3b1f9a5eb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tafel" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">tafel-kopen.be</h3>
+                    <a href="https://tafel-kopen.be/" class="btn">Bezoek</a>
+                </div>
+                <div class="shop-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Houtolie" class="shop-card__img" loading="lazy">
+                    <h3 class="shop-card__title">houtolie-kopen.be</h3>
+                    <a href="https://houtolie-kopen.be/" class="btn">Bezoek</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 We-kopen.be | Een initiatief van E-woodproducts</p>
+            <p><a href="mailto:support@e-woodproducts.com">support@e-woodproducts.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
