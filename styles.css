@@ -11,19 +11,19 @@ html {
 }
 
 body {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: #F4F1DE;
+    color: #264653; /* Donkergrijs, modern */
+    background: #F4F1DE; /* Lichte beige */
 }
 
 /* Variables */
 :root {
-    --primary: #2A9D8F;    /* Zeegroen */
-    --secondary: #E9C46A;  /* Okergeel */
-    --light-bg: #F4F1DE;   /* Licht beige */
+    --primary: #264653; /* Donkergrijs */
+    --secondary: #E9C46A; /* Okergeel */
+    --light-bg: #F4F1DE; /* Lichte beige */
     --white: #fff;
-    --accent: #264653;     /* Donker teal */
+    --border-radius: 12px;
 }
 
 /* Utility Classes */
@@ -39,13 +39,12 @@ body {
     color: var(--primary);
     margin-bottom: 2.5rem;
     font-weight: 700;
-    position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .section-title::before {
-    content: "✨";
+    content: "🌟";
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -57,7 +56,7 @@ body {
 /* Header/Hero */
 .hero {
     min-height: 60vh;
-    background: linear-gradient(to bottom, rgba(42, 157, 143, 0.8), rgba(42, 157, 143, 0.2)),
+    background: linear-gradient(to bottom, rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.3)),
                 url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -118,7 +117,7 @@ body {
 
 .category-title {
     font-size: 1.8rem;
-    color: var(--accent);
+    color: var(--primary);
     margin-bottom: 1.5rem;
     text-align: center;
     font-weight: 600;
@@ -131,13 +130,13 @@ body {
 }
 
 .shop-card {
-    text-align: center;
     background: var(--white);
     padding: 1.5rem;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 1px solid rgba(42, 157, 143, 0.2);
+    border: 1px solid rgba(38, 70, 83, 0.1);
+    overflow: hidden;
 }
 
 .shop-card:hover {
@@ -148,41 +147,46 @@ body {
 
 .shop-card__img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
 }
 
 .shop-card__title {
-    color: var(--accent);
+    color: var(--primary);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    text-align: center;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 1.5rem;
     background: var(--secondary);
-    color: var(--accent);
+    color: var(--primary);
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 20px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
 }
 
 .btn:hover {
-    background: var(--primary);
+    background: #D4A017; /* Donkerder okergeel */
     color: var(--white);
     transform: translateY(-2px);
 }
 
 /* Footer */
 .footer {
-    background: var(--accent);
+    background: var(--primary);
     color: var(--white);
     padding: 3rem 0;
     text-align: center;
