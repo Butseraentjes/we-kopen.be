@@ -57,7 +57,7 @@ body {
 .hero {
     min-height: 60vh;
     background: linear-gradient(to bottom, rgba(38, 70, 83, 0.8), rgba(38, 70, 83, 0.3)),
-                url('https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+                url('https://www.e-woodproducts.be/cdn/shop/files/669015d937018-e85c9b38c5bd796c8a068c7f68171d5187da5bba_P052534_C_v01_0_202310_1920x1920_d3b3125b-26d1-4a1b-b5c8-27382bcd20a1_1296x865.jpg?v=1739795549') center/cover no-repeat;
     display: flex;
     align-items: center;
     text-align: center;
